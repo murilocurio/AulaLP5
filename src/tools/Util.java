@@ -41,7 +41,7 @@ public class Util {
         return true;
     }
     
-    public static int strToInt(){
+    public static int strToInt(String cad){
         return Integer.valueOf(cad);
     }
     
