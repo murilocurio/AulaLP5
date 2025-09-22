@@ -2,7 +2,6 @@ package bean;
 // Generated 15/09/2025 10:21:54 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,8 +30,7 @@ public class Pedidos  implements java.io.Serializable {
      private Clientes clientes;
      private Vendedor vendedor;
      private Date data;
-     private BigDecimal total;
-     private Set pedidosProdutoses = new HashSet(0);
+     private Double total;
 
     public Pedidos() {
     }
@@ -41,13 +39,12 @@ public class Pedidos  implements java.io.Serializable {
     public Pedidos(int idpedidos) {
         this.idpedidos = idpedidos;
     }
-    public Pedidos(int idpedidos, Clientes clientes, Vendedor vendedor, Date data, BigDecimal total, Set pedidosProdutoses) {
+    public Pedidos(int idpedidos, Clientes clientes, Vendedor vendedor, Date data, Double total) {
        this.idpedidos = idpedidos;
        this.clientes = clientes;
        this.vendedor = vendedor;
        this.data = data;
        this.total = total;
-       this.pedidosProdutoses = pedidosProdutoses;
     }
    
      @Id 
@@ -94,25 +91,13 @@ public class Pedidos  implements java.io.Serializable {
 
     
     @Column(name="total", precision=10)
-    public BigDecimal getTotal() {
+    public Double getTotal() {
         return this.total;
     }
     
-    public void setTotal(BigDecimal total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="pedidos")
-    public Set getPedidosProdutoses() {
-        return this.pedidosProdutoses;
-    }
-    
-    public void setPedidosProdutoses(Set pedidosProdutoses) {
-        this.pedidosProdutoses = pedidosProdutoses;
-    }
-
-
-
 
 }
 

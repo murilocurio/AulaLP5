@@ -62,5 +62,6 @@ public class UsuariosDAO extends AbstractDAO {
     public static void main(String[] args) {
         UsuariosDAO usuariosDAO = new UsuariosDAO();
         usuariosDAO.listAll();
+        System.out.println("Deu certo");
     }
 }

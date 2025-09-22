@@ -2,7 +2,6 @@ package bean;
 // Generated 15/09/2025 10:21:54 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -24,8 +23,8 @@ public class Vendedor  implements java.io.Serializable {
 
      private int idvendedor;
      private String nome;
-     private BigDecimal salario;
-     private BigDecimal comissao;
+     private Double salario;
+     private Double comissao;
      private String vendedorcol;
      private Set pedidoses = new HashSet(0);
 
@@ -36,7 +35,7 @@ public class Vendedor  implements java.io.Serializable {
     public Vendedor(int idvendedor) {
         this.idvendedor = idvendedor;
     }
-    public Vendedor(int idvendedor, String nome, BigDecimal salario, BigDecimal comissao, String vendedorcol, Set pedidoses) {
+    public Vendedor(int idvendedor, String nome, Double salario, Double comissao, String vendedorcol) {
        this.idvendedor = idvendedor;
        this.nome = nome;
        this.salario = salario;
@@ -69,21 +68,21 @@ public class Vendedor  implements java.io.Serializable {
 
     
     @Column(name="salario", precision=10)
-    public BigDecimal getSalario() {
+    public Double getSalario() {
         return this.salario;
     }
     
-    public void setSalario(BigDecimal salario) {
+    public void setSalario(Double salario) {
         this.salario = salario;
     }
 
     
     @Column(name="comissao", precision=10)
-    public BigDecimal getComissao() {
+    public Double getComissao() {
         return this.comissao;
     }
     
-    public void setComissao(BigDecimal comissao) {
+    public void setComissao(Double comissao) {
         this.comissao = comissao;
     }
 
@@ -96,18 +95,6 @@ public class Vendedor  implements java.io.Serializable {
     public void setVendedorcol(String vendedorcol) {
         this.vendedorcol = vendedorcol;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="vendedor")
-    public Set getPedidoses() {
-        return this.pedidoses;
-    }
-    
-    public void setPedidoses(Set pedidoses) {
-        this.pedidoses = pedidoses;
-    }
-
-
-
 
 }
 
